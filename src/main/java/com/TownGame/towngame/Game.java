@@ -6,7 +6,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Color;
-import org.newdawn.slick.KeyListener;
+
 import java.util.ArrayList;
 
 /**
@@ -49,6 +49,11 @@ public class Game extends BasicGame {
     g.setColor(Color.green);
     g.fillRect(player.xpos, player.ypos, 32, 32);
     g.drawRect(player.xpos, player.ypos, 32, 32);
+
+    g.setColor(Color.red);
+    g.fillRect(basicZombie.z.xpos, basicZombie.z.ypos, basicZombie.z.size, basicZombie.z.size);
+    g.drawRect(basicZombie.z.xpos, basicZombie.z.ypos, basicZombie.z.size, basicZombie.z.size);
+
 
   }
 
