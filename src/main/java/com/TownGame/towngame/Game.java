@@ -1,21 +1,21 @@
 package com.TownGame.towngame;
 
+import java.awt.Font;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Color;
-import org.newdawn.slick.Font;
 import org.newdawn.slick.TrueTypeFont;
 
 import java.util.ArrayList;
 
 
 public class Game extends BasicGame {
-  //TrueTypeFont font;
 
 
+  TrueTypeFont font;
   public Player player;
   private ArrayList<Entity> entities = new ArrayList<Entity>();
   private Controller controller;
@@ -36,8 +36,8 @@ public class Game extends BasicGame {
     container.getInput().addKeyListener(controller);
     entities.add(player);
     entities.add(new BasicZombie(150, 150, 2));
-    //Font awtFont = new Font("Times New Roman", Font.BOLD, 24);
-    //font = new TrueTypeFont(awtFont, false);
+    Font awtFont = new Font("Verdana", Font.BOLD, 50);
+    font = new TrueTypeFont(awtFont, false);
   }
 
 
@@ -107,8 +107,7 @@ for(Entity e : entities) {
 
 if (gameOver){
 
-  //font.drawString(400.0f, 300.0f, "Your words here", Color.green);
-  g.drawString("YOU ARE DEAD!", 350, 300);
+  font.drawString(150.0f, 200.0f, "YOU ARE DEAD!", Color.red);
 }
 
 
