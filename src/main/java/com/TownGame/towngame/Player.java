@@ -2,7 +2,7 @@ package com.TownGame.towngame;
 
 
 
-public class Player extends Entity{
+public class Player extends Entity implements Controllable {
 static public boolean collided = false;
 
 	Player(int x, int y, int s, int h){
@@ -13,6 +13,7 @@ static public boolean collided = false;
 
 	}
 
+	@Override
 	public void move(String string){
 
 		if (string == "down"){ //down key
