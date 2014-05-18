@@ -42,7 +42,12 @@ public class Game extends BasicGame {
     controller.update();
     for(Entity e : entities) {
       e.update();
+      for(Entity e2 : entities) {
+        if(e2 != e) { if(e.colidesWith(e2)) e.colideWith(e2); }
+      }
     }
+
+
 
     //BasicZombie.z.attack();
 
@@ -55,6 +60,7 @@ public class Game extends BasicGame {
 for(Entity e : entities) {
   e.render(g);
 }
+
 
 
 

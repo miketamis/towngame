@@ -6,9 +6,19 @@ public class Entity {
 
 	private int xpos;
 	private int ypos;
-	static int speed;
-	static int health;
 
+
+	public boolean colidesWith(Entity e) {
+		if ((e.getX() - this.getX()) < 32 && (e.getX() - this.getX()) > -32) {
+		    return ((e.getY() - this.getY()) < 32 && (e.getY() - this.getY()) > -32);
+		}
+
+		return false;
+	}
+
+    public void colideWith(Entity e) {
+
+    }
     public Entity(int x, int y) {
 
 	      xpos = x;

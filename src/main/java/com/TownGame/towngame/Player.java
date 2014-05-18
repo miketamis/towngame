@@ -7,16 +7,20 @@ import org.newdawn.slick.Color;
 
 public class Player extends Entity implements Controllable {
 
-public static Player p = new Player(50, 50, 2, 100);
-public boolean collided = false;
-
-
+    private int speed;
+    private int health;
 
 	Player(int x, int y, int s, int h){
         super(x, y);
 		speed = s;
 		health = h;
 	}
+
+    @Override
+    public void colideWith(Entity e) {
+        if(e instanceof BasicZombie)
+        health -= 1;
+    }
 
 	@Override
 	public void update() {
@@ -58,7 +62,4 @@ public void render(Graphics g) {
 	g.drawString("Health: " + health, getX() - 20, getY() - 20);
 
 }
-
-
-
 }

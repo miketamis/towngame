@@ -6,13 +6,13 @@ import org.newdawn.slick.Color;
 
 public class BasicZombie extends Enemy{
 
-
-public static BasicZombie z = new BasicZombie(80, 80, 2);
-
-
+    private int speed;
+    private int health;
 
   BasicZombie(int x, int y, int l){
+
    super(x, y);
+
    level = l;
    attack = level * 5;
    defense = level * 3;
