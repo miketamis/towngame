@@ -42,8 +42,17 @@ public class Game extends BasicGame {
     controller.update();
     for(Entity e : entities) {
       e.update();
-      for(Entity e2 : entities) {
-        if(e2 != e) { if(e.colidesWith(e2)) e.colideWith(e2); }
+
+    }
+
+    for(int i = 0; i < entities.size(); i++) {
+      for(int j = i + 1; j < entities.size(); j++) {
+        Entity e = entities.get(i);
+        Entity e2 = entities.get(j);
+        if(e.colidesWith(e2)) {
+         e.colideWith(e2);
+         e2.colideWith(e);
+       }
       }
     }
 
