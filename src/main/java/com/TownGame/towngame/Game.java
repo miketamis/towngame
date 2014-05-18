@@ -6,6 +6,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Color;
+import java.util.ArrayList;
 
 /**
  * A game using Slick2d
@@ -16,6 +17,8 @@ public class Game extends BasicGame {
   public boolean up_down = false;
   public boolean down_down = false;
 
+  private Player player;
+  private ArrayList<Entity> entities = new ArrayList<Entity>();
 
   public Game(String title) {
     super(title);
@@ -63,6 +66,9 @@ public class Game extends BasicGame {
 
   @Override
   public void update(GameContainer container, int delta) throws SlickException {
+    for(Entity e : entities) {
+      e.update();
+    }
     if(down_down == true){
       Player.p.move("down");
     }

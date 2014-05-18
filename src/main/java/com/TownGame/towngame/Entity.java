@@ -6,4 +6,8 @@ public class Entity {
 	int ypos;
 	static int speed;
 	static int health;
+
+	public void update() {
+		
+	}
 }
