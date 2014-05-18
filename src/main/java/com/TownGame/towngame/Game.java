@@ -59,8 +59,8 @@ public class Game extends BasicGame {
 
   @Override
   public void init(GameContainer container) throws SlickException {
-
-
+    player = new Player(50, 50, 5, 100);
+    entities.add(player);
   }
 
 
