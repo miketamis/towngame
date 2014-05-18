@@ -36,7 +36,7 @@ public class Game extends BasicGame {
 
   @Override
   public void update(GameContainer container, int delta) throws SlickException {
-      controller.update();
+    controller.update();
     for(Entity e : entities) {
       e.update();
     }
