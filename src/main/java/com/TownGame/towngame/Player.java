@@ -3,9 +3,6 @@ package com.TownGame.towngame;
 public class Player extends Entity implements Controllable {
 
 
-
-public class Player extends Entity{
-
 public static Player p = new Player(50, 50, 2, 100);
 public boolean collided = false;
 
@@ -53,5 +50,4 @@ public boolean collided = false;
 
 
 
-}
 }

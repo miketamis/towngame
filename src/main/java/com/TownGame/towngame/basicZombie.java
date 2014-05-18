@@ -1,13 +1,13 @@
 package com.TownGame.towngame;
 
-public class basicZombie extends Enemy{
+public class BasicZombie extends Enemy{
 
 
 public static BasicZombie z = new BasicZombie(80, 80, 2);
 
 
 
-  basicZombie(int x, int y, int l){
+  BasicZombie(int x, int y, int l){
    xpos = x;
    ypos = y;
    level = l;

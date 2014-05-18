@@ -57,8 +57,8 @@ public class Game extends BasicGame {
 
 
     g.setColor(Color.red);
-    g.fillRect(basicZombie.z.xpos, basicZombie.z.ypos, basicZombie.z.size, basicZombie.z.size);
-    g.drawRect(basicZombie.z.xpos, basicZombie.z.ypos, basicZombie.z.size, basicZombie.z.size);
+    g.fillRect(BasicZombie.z.xpos, BasicZombie.z.ypos, BasicZombie.z.size, BasicZombie.z.size);
+    g.drawRect(BasicZombie.z.xpos, BasicZombie.z.ypos, BasicZombie.z.size, BasicZombie.z.size);
 
 
 

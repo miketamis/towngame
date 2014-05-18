@@ -6,8 +6,8 @@ public class Enemy extends Entity {
   public int defense;
   public int size;
   public int level;
-  public int distX = ((Player.p.xpos + 16) - (BasicZombie.z.xpos + 16));
-  public int distY = ((Player.p.ypos + 16) - (BasicZombie.z.ypos + 16));
+  public float distX = ((Player.p.xpos + 16) - (BasicZombie.z.xpos + 16));
+  public float distY = ((Player.p.ypos + 16) - (BasicZombie.z.ypos + 16));
 
 public void attack(){
   if(distX*distX <= 16*16 && distY*distY <= 16*16){
