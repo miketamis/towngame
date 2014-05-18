@@ -6,10 +6,10 @@ import org.newdawn.slick.KeyListener;
 public class Controller implements KeyListener {
 
   private Controllable player;
-public boolean right_down = false;
-public boolean left_down = false;
-public boolean up_down = false;
-public boolean down_down = false;
+private boolean right_down = false;
+private boolean left_down = false;
+private boolean up_down = false;
+private boolean down_down = false;
 
   public Controller(Controllable player) {
     this.player = player;
@@ -17,16 +17,16 @@ public boolean down_down = false;
 
   public void update() {
     if(down_down == true){
-      player.move("down");
+      player.move(Direction.DOWN);
     }
     if(up_down == true){
-      player.move("up");
+      player.move(Direction.UP);
     }
     if(left_down == true){
-      player.move("left");
+      player.move(Direction.LEFT);
     }
     if(right_down == true){
-      player.move("right");
+      player.move(Direction.RIGHT);
     }
   }
 
