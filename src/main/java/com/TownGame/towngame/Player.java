@@ -55,8 +55,8 @@ public class Player extends Entity implements Controllable {
 
     public void render(Graphics g) {
         g.setColor(Color.green);
-        g.fillRect(getX(), getY(), 32, 32);
-        g.drawRect(getX(), getY(), 32, 32);
+        g.fillRect((int)getX(),(int) getY(), 32, 32);
+        g.drawRect((int)getX(),(int) getY(), 32, 32);
         g.drawString("Health: " + getHealth(), getX() - 20, getY() - 20);
 
     }

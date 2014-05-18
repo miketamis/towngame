@@ -4,8 +4,8 @@ import org.newdawn.slick.Graphics;
 
 public class Entity {
 
-    private int xpos;
-    private int ypos;
+    private float xpos;
+    private float ypos;
     private int health;
     private boolean alive = true;
 
@@ -43,27 +43,27 @@ public class Entity {
 
     }
 
-    public void incrementX(int speed) {
+    public void incrementX(float speed) {
         xpos += speed;
     }
 
-    public void incrementY(int speed) {
+    public void incrementY(float speed) {
         ypos += speed;
     }
 
-    public int getX() {
+    public float getX() {
         return xpos;
     }
 
-    public void setX(int x) {
+    public void setX(float x) {
         xpos = x;
     }
 
-    public int getY() {
+    public float getY() {
         return ypos;
     }
 
-    public void setY(int y) {
+    public void setY(float y) {
         ypos = y;
     }
 

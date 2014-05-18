@@ -19,6 +19,20 @@ public class BasicZombie extends Enemy {
 
     }
 
+    @Override
+    public void update() {
+      moveTowards(Game.game.player);
+    }
+
+    public void moveTowards(Entity e) {
+      float xDif = e.getX() - getX();
+      float yDif = e.getY() - getY();
+      float total = Math.abs(xDif) + Math.abs(yDif);
+      float s = 1/total;
+      incrementX(s * xDif);
+      incrementY(s * yDif);
+     }
+
     public void move(int move) {
 
 
