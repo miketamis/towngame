@@ -70,16 +70,16 @@ public class Game extends BasicGame {
       e.update();
     }
     if(down_down == true){
-      Player.p.move("down");
+      player.move("down");
     }
     if(up_down == true){
-      Player.p.move("up");
+      player.move("up");
     }
     if(left_down == true){
-      Player.p.move("left");
+      player.move("left");
     }
     if(right_down == true){
-      Player.p.move("right");
+      player.move("right");
     }
     }
 
@@ -88,8 +88,8 @@ public class Game extends BasicGame {
   @Override
   public void render(GameContainer container, Graphics g) throws SlickException {
     g.setColor(Color.green);
-    g.fillRect(Player.p.xpos, Player.p.ypos, 32, 32);
-    g.drawRect(Player.p.xpos, Player.p.ypos, 32, 32);
+    g.fillRect(player.xpos, player.ypos, 32, 32);
+    g.drawRect(player.xpos, player.ypos, 32, 32);
 
   }
 

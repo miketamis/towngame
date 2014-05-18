@@ -3,7 +3,6 @@ package com.TownGame.towngame;
 
 
 public class Player extends Entity{
-public static Player p = new Player(50, 50, 5, 100);
 static public boolean collided = false;
 
 	Player(int x, int y, int s, int h){
