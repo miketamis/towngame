@@ -85,6 +85,11 @@ public class Game extends BasicGame {
     g.fillRect(Player.p.xpos, Player.p.ypos, 32, 32);
     g.drawRect(Player.p.xpos, Player.p.ypos, 32, 32);
 
+    g.setColor(Color.red);
+    g.fillRect(BasicZombie.z.xpos, BasicZombie.z.ypos, BasicZombie.z.size, BasicZombie.z.size);
+    g.drawRect(BasicZombie.z.xpos, BasicZombie.z.ypos, BasicZombie.z.size, BasicZombie.z.size);
+
+
   }
 
   public static void main(String[] args) throws SlickException {
