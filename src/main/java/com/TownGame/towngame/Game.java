@@ -75,6 +75,9 @@ public class Game extends BasicGame {
     if(right_down == true){
       Player.p.move("right");
     }
+
+    BasicZombie.z.attack();
+
     }
 
 
@@ -84,6 +87,7 @@ public class Game extends BasicGame {
     g.setColor(Color.green);
     g.fillRect(Player.p.xpos, Player.p.ypos, 32, 32);
     g.drawRect(Player.p.xpos, Player.p.ypos, 32, 32);
+    g.drawString("Health: " + Player.p.health, Player.p.xpos - 20, Player.p.ypos - 20);
 
 
 
@@ -93,7 +97,7 @@ public class Game extends BasicGame {
   AppGameContainer app = new AppGameContainer(new Game("setup test"));
   app.setDisplayMode(800, 600, false);
   app.setAlwaysRender(true);
-  app.setTargetFrameRate(24);
+  app.setTargetFrameRate(60);
   app.start();
 
 
