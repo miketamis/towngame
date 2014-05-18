@@ -14,13 +14,6 @@ static public boolean collided = false;
 
 	}
 
-
-
-	public static void main(String[] args) {
-
-
-	}
-
 	public void move(String string){
 
 		if (string == "down"){ //down key
