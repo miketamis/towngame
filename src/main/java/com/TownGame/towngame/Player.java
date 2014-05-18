@@ -8,18 +8,18 @@ import org.newdawn.slick.Color;
 public class Player extends Entity implements Controllable {
 
     private int speed;
-    public int health;
+
 
 	Player(int x, int y, int s, int h){
         super(x, y);
 		speed = s;
-		health = h;
+		setHealth(h);
 	}
 
     @Override
     public void colideWith(Entity e) {
         if(e instanceof BasicZombie)
-        health -= 1;
+        incrementHealth(-1);
     }
 
 	@Override
@@ -30,7 +30,7 @@ public class Player extends Entity implements Controllable {
 
 	@Override
 	public void move(Direction direction){
-
+if (Game.gameOver == false){
 		if (direction == Direction.DOWN){ //down key
             incrementY(speed);
 		}
@@ -53,14 +53,14 @@ public class Player extends Entity implements Controllable {
             incrementX(speed);
 		}
 
-
+		}
 	}
 
 public void render(Graphics g) {
 	g.setColor(Color.green);
 	g.fillRect(getX(), getY(), 32, 32);
 	g.drawRect(getX(), getY(), 32, 32);
-	g.drawString("Health: " + health, getX() - 20, getY() - 20);
+	g.drawString("Health: " + getHealth(), getX() - 20, getY() - 20);
 
 }
 

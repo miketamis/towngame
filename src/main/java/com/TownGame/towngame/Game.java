@@ -6,17 +6,21 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Color;
+import org.newdawn.slick.Font;
+import org.newdawn.slick.TrueTypeFont;
 
 import java.util.ArrayList;
 
 
 public class Game extends BasicGame {
+  //TrueTypeFont font;
 
 
   public Player player;
   private ArrayList<Entity> entities = new ArrayList<Entity>();
   private Controller controller;
-    public static Game game;
+  public static Game game;
+  public static boolean gameOver = false;
 
   public Game(String title) {
     super(title);
@@ -32,6 +36,8 @@ public class Game extends BasicGame {
     container.getInput().addKeyListener(controller);
     entities.add(player);
     entities.add(new BasicZombie(150, 150, 2));
+    //Font awtFont = new Font("Times New Roman", Font.BOLD, 24);
+    //font = new TrueTypeFont(awtFont, false);
   }
 
 
@@ -40,7 +46,9 @@ public class Game extends BasicGame {
     controller.update();
 
     for(Entity e : entities) {
-      e.dead();
+      if(e instanceof Player){
+      e.dead(e);
+    }
       if(e.getAlive()){
       e.update();
     }
@@ -97,7 +105,11 @@ for(Entity e : entities) {
 }
 }
 
+if (gameOver){
 
+  //font.drawString(400.0f, 300.0f, "Your words here", Color.green);
+  g.drawString("YOU ARE DEAD!", 350, 300);
+}
 
 
 

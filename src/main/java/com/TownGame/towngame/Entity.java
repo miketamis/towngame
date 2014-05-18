@@ -72,11 +72,26 @@ public class Entity {
 		public void setAlive(boolean a) {
 				 alive = a;
 		}
+		public int getHealth(){
 
-		public void dead(){
-			if (health <= -1){
-				setAlive(false);
+			return health;
+		}
+		public void setHealth(int hp){
+
+			health = hp;
+		}
+		public void incrementHealth(int hpp){
+
+			health += hpp;
+		}
+		public void dead(Entity e){//only works for player currently,
+			if( e instanceof Player){//will switch it over to enemies later with combat implementation
+			if (this.getHealth() <= -1){
+				this.setAlive(false);
+				Game.gameOver = true;
+				// Graphics.drawString("YOU ARE DEAD!", 400, 300);
 			}
+		}
 		}
 
 }
