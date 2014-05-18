@@ -2,11 +2,9 @@ package com.TownGame.towngame;
 
 public class basicZombie extends Enemy{
 
-<<<<<<< HEAD
+
 public static BasicZombie z = new BasicZombie(80, 80, 2);
-=======
-  public static basicZombie z = new basicZombie(80, 80, 2);
->>>>>>> FETCH_HEAD
+
 
 
   basicZombie(int x, int y, int l){

@@ -50,19 +50,16 @@ public class Game extends BasicGame {
   @Override
   public void render(GameContainer container, Graphics g) throws SlickException {
     g.setColor(Color.green);
-<<<<<<< HEAD
     g.fillRect(Player.p.xpos, Player.p.ypos, 32, 32);
     g.drawRect(Player.p.xpos, Player.p.ypos, 32, 32);
     g.drawString("Health: " + Player.p.health, Player.p.xpos - 20, Player.p.ypos - 20);
 
-=======
-    g.fillRect(player.xpos, player.ypos, 32, 32);
-    g.drawRect(player.xpos, player.ypos, 32, 32);
+
 
     g.setColor(Color.red);
     g.fillRect(basicZombie.z.xpos, basicZombie.z.ypos, basicZombie.z.size, basicZombie.z.size);
     g.drawRect(basicZombie.z.xpos, basicZombie.z.ypos, basicZombie.z.size, basicZombie.z.size);
->>>>>>> FETCH_HEAD
+
 
 
   }
