@@ -8,8 +8,9 @@ public static BasicZombie z = new BasicZombie(80, 80, 2);
 
 
   BasicZombie(int x, int y, int l){
-   xpos = x;
-   ypos = y;
+
+   super(x, y);
+
    level = l;
    attack = level * 5;
    defense = level * 3;

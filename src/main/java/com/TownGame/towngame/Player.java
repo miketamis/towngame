@@ -9,8 +9,7 @@ public boolean collided = false;
 
 
 	Player(int x, int y, int s, int h){
-		xpos = x;
-		ypos = y;
+        super(x, y);
 		speed = s;
 		health = h;
 	}
@@ -24,25 +23,25 @@ public boolean collided = false;
 	public void move(String string){
 
 		if (string == "down"){ //down key
-			ypos +=speed;
+            incrementX(speed);
 		}
 
 
 
 		if (string ==  "left"){ //left key
-			xpos -=speed;
+            incrementY(-speed);
 		}
 
 
 
 		if (string ==  "up"){ //up key
-			ypos -=speed;
+            incrementX(-speed);
 
 		}
 
 
 		if (string ==  "right"){ //right key
-			xpos +=speed;
+            incrementX(speed);
 		}
 
 
