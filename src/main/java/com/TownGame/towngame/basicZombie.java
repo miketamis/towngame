@@ -7,7 +7,7 @@ import org.newdawn.slick.Color;
 public class BasicZombie extends Enemy {
 
     private int speed;
-    private int health;
+    public int health;
 
   BasicZombie(int x, int y, int l){
 
@@ -20,6 +20,12 @@ public class BasicZombie extends Enemy {
 
   }
 
+  public void move(int move){
+
+
+    }
+
+
   public void render(Graphics g) {
     g.setColor(Color.red);
     g.fillRect(getX(), getY(), 32, 32);
@@ -28,4 +34,11 @@ public class BasicZombie extends Enemy {
 
   }
 
-}
+
+
+
+
+
+
+
+  }

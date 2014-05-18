@@ -38,8 +38,12 @@ public class Game extends BasicGame {
   @Override
   public void update(GameContainer container, int delta) throws SlickException {
     controller.update();
+
     for(Entity e : entities) {
+      e.dead();
+      if(e.getAlive()){
       e.update();
+    }
 
     }
 
@@ -55,18 +59,42 @@ public class Game extends BasicGame {
       }
     }
 
+    for(int i = 0; i < entities.size(); i++) {
+      for(int j = i + 1; j < entities.size(); j++) {
+        Entity e = entities.get(i);
+        Entity e2 = entities.get(j);
+        if(e.inRange(e2)) {
 
+         if(e.getX() >= e2.getX()){
+           e2.incrementX(1);
+        }else{
+          e2.incrementX(-1);
+        }
+
+        if(e.getY() >= e2.getY()){
+          e2.incrementY(1);
+       }else{
+         e2.incrementY(-1);
+       }
+
+   }
 
 
 
     }
+  }
+}
 
 
 
   @Override
   public void render(GameContainer container, Graphics g) throws SlickException {
+
 for(Entity e : entities) {
+  if(e.getAlive()){
+
   e.render(g);
+}
 }
 
 

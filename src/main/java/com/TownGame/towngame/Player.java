@@ -8,7 +8,7 @@ import org.newdawn.slick.Color;
 public class Player extends Entity implements Controllable {
 
     private int speed;
-    private int health;
+    public int health;
 
 	Player(int x, int y, int s, int h){
         super(x, y);
@@ -24,6 +24,7 @@ public class Player extends Entity implements Controllable {
 
 	@Override
 	public void update() {
+
 
 	}
 
@@ -62,4 +63,7 @@ public void render(Graphics g) {
 	g.drawString("Health: " + health, getX() - 20, getY() - 20);
 
 }
+
+
+
 }
