@@ -27,19 +27,19 @@ public boolean collided = false;
 	public void move(String string){
 
 		if (string == "down"){ //down key
-            incrementX(speed);
+            incrementY(speed);
 		}
 
 
 
 		if (string ==  "left"){ //left key
-            incrementY(-speed);
+            incrementX(-speed);
 		}
 
 
 
 		if (string ==  "up"){ //up key
-            incrementX(-speed);
+            incrementY(-speed);
 
 		}
 
