@@ -9,9 +9,7 @@ import org.newdawn.slick.Color;
 
 import java.util.ArrayList;
 
-/**
- * A game using Slick2d
- */
+
 public class Game extends BasicGame {
 
 
@@ -33,7 +31,7 @@ public class Game extends BasicGame {
     controller = new Controller(player);
     container.getInput().addKeyListener(controller);
     entities.add(player);
-    entities.add(new BasicZombie(80, 80, 2));
+    entities.add(new BasicZombie(150, 150, 2));
   }
 
 
@@ -42,14 +40,14 @@ public class Game extends BasicGame {
     controller.update();
     for(Entity e : entities) {
       e.update();
-      for(Entity e2 : entities) {
+    for(Entity e2 : entities) {
         if(e2 != e) { if(e.colidesWith(e2)) e.colideWith(e2); }
       }
     }
 
 
 
-    //BasicZombie.z.attack();
+
 
     }
 
