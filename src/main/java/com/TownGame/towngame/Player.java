@@ -1,15 +1,19 @@
 package com.TownGame.towngame;
 
-
-
 public class Player extends Entity implements Controllable {
+
 static public boolean collided = false;
+
 
 	Player(int x, int y, int s, int h){
 		xpos = x;
 		ypos = y;
 		speed = s;
 		health = h;
+	}
+
+	@Override
+	public void update() {
 
 	}
 
