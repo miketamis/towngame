@@ -6,8 +6,7 @@ public class basicZombie extends Enemy{
 
 
   basicZombie(int x, int y, int l){
-   xpos = x;
-   ypos = y;
+   super(x, y);
    level = l;
    attack = level * 5;
    defense = level * 3;
