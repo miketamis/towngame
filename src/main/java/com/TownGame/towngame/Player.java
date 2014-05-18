@@ -64,6 +64,13 @@ public void render(Graphics g) {
 
 }
 
+  @Override
+  public void kill(Source source) {
+    super.kill(source); //do the stuff that normally happens when entity dies
+    Game.gameOver = true;
+    // Graphics.drawString("YOU ARE DEAD!", 400, 300);
+  }
+
 
 
 }

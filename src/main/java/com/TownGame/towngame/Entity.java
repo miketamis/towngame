@@ -79,19 +79,19 @@ public class Entity {
 		public void setHealth(int hp){
 
 			health = hp;
-		}
-		public void incrementHealth(int hpp){
-
-			health += hpp;
-		}
-		public void dead(Entity e){//only works for player currently,
-			if( e instanceof Player){//will switch it over to enemies later with combat implementation
-			if (this.getHealth() <= -1){
-				this.setAlive(false);
-				Game.gameOver = true;
-				// Graphics.drawString("YOU ARE DEAD!", 400, 300);
+			if(health < 0) {
+				kill(new UnknownSource());
 			}
 		}
+
+		public void incrementHealth(int hpp){
+			setHealth(getHealth() + hpp);
 		}
+
+		public void kill(Source source){
+				this.setAlive(false);
+			}
+
+		
 
 }
