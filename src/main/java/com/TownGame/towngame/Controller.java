@@ -17,16 +17,16 @@ private boolean down_down = false;
 
   public void update() {
     if(down_down == true){
-      player.move("down");
+      player.move(Direction.DOWN);
     }
     if(up_down == true){
-      player.move("up");
+      player.move(Direction.UP);
     }
     if(left_down == true){
-      player.move("left");
+      player.move(Direction.LEFT);
     }
     if(right_down == true){
-      player.move("right");
+      player.move(Direction.RIGHT);
     }
   }
 
