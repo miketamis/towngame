@@ -4,7 +4,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Color;
 
-public class BasicZombie extends Enemy{
+public class BasicZombie extends Enemy {
 
     private int speed;
     private int health;
