@@ -2,7 +2,9 @@ package com.TownGame.towngame;
 
 public class Player extends Entity implements Controllable {
 
-static public boolean collided = false;
+public static Player p = new Player(50, 50, 2, 100);
+public boolean collided = false;
+
 
 
 	Player(int x, int y, int s, int h){
@@ -47,3 +49,4 @@ static public boolean collided = false;
 
 
 }
+

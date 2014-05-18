@@ -15,12 +15,14 @@ import java.util.ArrayList;
 public class Game extends BasicGame {
 
 
-  private Player player;
+  public Player player;
   private ArrayList<Entity> entities = new ArrayList<Entity>();
   private Controller controller;
+    public static Game game;
 
   public Game(String title) {
     super(title);
+      game = this;
 
   }
 
@@ -36,10 +38,13 @@ public class Game extends BasicGame {
 
   @Override
   public void update(GameContainer container, int delta) throws SlickException {
-      controller.update();
+    controller.update();
     for(Entity e : entities) {
       e.update();
     }
+
+    BasicZombie.z.attack();
+
     }
 
 
@@ -47,12 +52,15 @@ public class Game extends BasicGame {
   @Override
   public void render(GameContainer container, Graphics g) throws SlickException {
     g.setColor(Color.green);
+
     g.fillRect(player.getX(), player.getY(), 32, 32);
     g.drawRect(player.getX(), player.getY(), 32, 32);
+    g.drawString("Health: " + player.health, player.getX() - 20, player.getY() - 20);
 
     g.setColor(Color.red);
-    g.fillRect(basicZombie.z.getX(), basicZombie.z.getY(), basicZombie.z.size, basicZombie.z.size);
-    g.drawRect(basicZombie.z.getX(), basicZombie.z.getY(), basicZombie.z.size, basicZombie.z.size);
+    g.fillRect(BasicZombie.z.getX(), BasicZombie.z.getY(), BasicZombie.z.size, BasicZombie.z.size);
+    g.drawRect(BasicZombie.z.getX(), BasicZombie.z.getY(), BasicZombie.z.size, BasicZombie.z.size);
+
 
 
   }
@@ -61,7 +69,7 @@ public class Game extends BasicGame {
   AppGameContainer app = new AppGameContainer(new Game("setup test"));
   app.setDisplayMode(800, 600, false);
   app.setAlwaysRender(true);
-  app.setTargetFrameRate(24);
+  app.setTargetFrameRate(60);
   app.start();
 
 
