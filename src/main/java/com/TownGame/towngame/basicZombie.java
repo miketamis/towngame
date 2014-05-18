@@ -1,5 +1,9 @@
 package com.TownGame.towngame;
 
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Color;
+
 public class BasicZombie extends Enemy{
 
 
@@ -16,5 +20,12 @@ public static BasicZombie z = new BasicZombie(80, 80, 2);
 
   }
 
+  public void render(Graphics g) {
+    g.setColor(Color.red);
+    g.fillRect(getX(), getY(), 32, 32);
+    g.drawRect(getX(), getY(), 32, 32);
+    g.drawString("Health: " + health, getX() - 20, getY() - 20);
+
+  }
 
 }

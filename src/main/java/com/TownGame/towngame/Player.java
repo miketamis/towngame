@@ -1,5 +1,10 @@
 package com.TownGame.towngame;
 
+
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Color;
+
 public class Player extends Entity implements Controllable {
 
 public static Player p = new Player(50, 50, 2, 100);
@@ -46,7 +51,14 @@ public boolean collided = false;
 
 	}
 
-
+public void render(Graphics g) {
+	g.setColor(Color.green);
+	g.fillRect(getX(), getY(), 32, 32);
+	g.drawRect(getX(), getY(), 32, 32);
+	g.drawString("Health: " + health, getX() - 20, getY() - 20);
 
 }
 
+
+
+}

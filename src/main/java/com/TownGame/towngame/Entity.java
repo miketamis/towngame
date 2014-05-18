@@ -1,5 +1,7 @@
 package com.TownGame.towngame;
 
+import org.newdawn.slick.Graphics;
+
 public class Entity {
 
 	private int xpos;
@@ -8,12 +10,14 @@ public class Entity {
 	static int health;
 
     public Entity(int x, int y) {
-        xpos = x;
+
+	      xpos = x;
         ypos = y;
     }
 
+	public void render(Graphics g) {}
 	public void update() {
-		
+
 	}
 
     public void setX(int x) {

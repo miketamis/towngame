@@ -33,6 +33,7 @@ public class Game extends BasicGame {
     controller = new Controller(player);
     container.getInput().addKeyListener(controller);
     entities.add(player);
+    entities.add(new BasicZombie(80, 80, 2));
   }
 
 
@@ -43,7 +44,7 @@ public class Game extends BasicGame {
       e.update();
     }
 
-    BasicZombie.z.attack();
+    //BasicZombie.z.attack();
 
     }
 
@@ -51,15 +52,10 @@ public class Game extends BasicGame {
 
   @Override
   public void render(GameContainer container, Graphics g) throws SlickException {
-    g.setColor(Color.green);
+for(Entity e : entities) {
+  e.render(g);
+}
 
-    g.fillRect(player.getX(), player.getY(), 32, 32);
-    g.drawRect(player.getX(), player.getY(), 32, 32);
-    g.drawString("Health: " + player.health, player.getX() - 20, player.getY() - 20);
-
-    g.setColor(Color.red);
-    g.fillRect(BasicZombie.z.getX(), BasicZombie.z.getY(), BasicZombie.z.size, BasicZombie.z.size);
-    g.drawRect(BasicZombie.z.getX(), BasicZombie.z.getY(), BasicZombie.z.size, BasicZombie.z.size);
 
 
 
