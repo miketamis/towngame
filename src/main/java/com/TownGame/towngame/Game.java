@@ -109,8 +109,8 @@ public class Game extends BasicGame {
         //fontLevel.drawString(10, 10, "Level: " + (int)level, Color.red);
 
         g.setColor(Color.blue);
-        g.fillRect(Tile.t.xpos + Camera.dOffsetX, Tile.t.ypos + Camera.dOffsetY, 32, 32);
-        g.drawRect(Tile.t.xpos + Camera.dOffsetX, Tile.t.ypos + Camera.dOffsetY, 32, 32);
+        g.fillRect(Tile.t.xpos, Tile.t.ypos, 32, 32);
+        g.drawRect(Tile.t.xpos, Tile.t.ypos, 32, 32);
 
     }
 
