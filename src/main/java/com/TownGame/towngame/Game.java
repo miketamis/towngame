@@ -50,7 +50,7 @@ public class Game extends BasicGame {
         controller = new Controller(player);
         container.getInput().addKeyListener(controller);
         entities.add(player);
-        Camera camera = new Camera(50, 50);
+        camera = new Camera(50, 50);
         mapRender = new MapRender(camera);
 
         camera.attachEntity(player);
@@ -58,15 +58,17 @@ public class Game extends BasicGame {
 
          entities.add(new BasicZombie(150, 150, 2));
          for(int i = 0; i < 5;i++) {
-           entities.add(new BasicZombie(random.nextInt(800), random.nextInt(600), 2));
+
          }
 
-        Font awtFont = new Font("Verdana", Font.BOLD, 50);
+        Font awtFont = new Font("Verdana", Font.BOLD, 30);
         font = new TrueTypeFont(awtFont, false);
 
         Font ff = new Font("Verdana", Font.BOLD, 20);
         fontLevel = new TrueTypeFont(awtFont, false);
     }
+    public Camera camera;
+
     @Override
     public void keyPressed(int key, char code) {
         if(code == 'r') {
@@ -86,7 +88,17 @@ public class Game extends BasicGame {
 
         if(random.nextInt(100) == 0) // 1 in 100 chance
         {
-            entities.add(new BasicZombie(random.nextInt(800), random.nextInt(600), 2) );
+            if(random.nextBoolean()) {
+                entities.add(new BasicZombie(
+                         (random.nextBoolean() ? -400 : 400) + camera.getX(),
+                        random.nextInt(300) * (random.nextBoolean() ? -1 : 1) + camera.getY()
+                        , 2));
+            } else {
+                entities.add(new BasicZombie(
+                        random.nextInt(400) * (random.nextBoolean() ? -1 : 1) + camera.getX(),
+                        (random.nextBoolean() ? -300 : 300) + camera.getY()
+                        , 2));
+            }
         }
 
         if(!gameOver) {
@@ -127,10 +139,10 @@ public class Game extends BasicGame {
 
         if (gameOver) {
 
-            font.drawString(150.0f, 200.0f, "YOU ARE DEAD!", Color.red);
+            font.drawString(10f, 150f, "YOU ARE DEAD! Press R to restart", Color.red);
         }
 
-        //fontLevel.drawString(10, 10, "Level: " + (int)level, Color.red);
+        fontLevel.drawString(10, 10, "Level: " + (int)level, Color.red);
 
 
 
