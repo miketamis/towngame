@@ -32,6 +32,6 @@ public class MapRender {
     }
 
     public void drawString(String s, float x, float y) {
-
+        g.drawString(s, x - camera.getX() + 400, y - camera.getY() + 300);
     }
 }
