@@ -36,7 +36,7 @@ public class Entity {
 
     }
 
-    public void render(Graphics g) {
+    public void render(MapRender g) {
     }
 
     public void update() {

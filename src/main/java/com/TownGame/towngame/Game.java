@@ -39,6 +39,8 @@ public class Game extends BasicGame {
 
     Random random = new Random();
 
+    MapRender mapRender;
+
     @Override
     public void init(GameContainer container) throws SlickException {
         player = new Player(400, 300, 5, 100);
@@ -46,13 +48,15 @@ public class Game extends BasicGame {
         container.getInput().addKeyListener(controller);
         entities.add(player);
         Camera camera = new Camera(50, 50);
+        mapRender = new MapRender(camera);
+
         camera.attachEntity(player);
         entities.add(camera);
 
-        // entities.add(new BasicZombie(150, 150, 2));
-        // for(int i = 0; i < 5;i++) {
-        //   entities.add(new BasicZombie(random.nextInt(800), random.nextInt(600), 2));
-        // }
+         entities.add(new BasicZombie(150, 150, 2));
+         for(int i = 0; i < 5;i++) {
+           entities.add(new BasicZombie(random.nextInt(800), random.nextInt(600), 2));
+         }
 
         Font awtFont = new Font("Verdana", Font.BOLD, 50);
         font = new TrueTypeFont(awtFont, false);
@@ -65,14 +69,14 @@ public class Game extends BasicGame {
     public void update(GameContainer container, int delta) throws SlickException {
         controller.update();
 
-        // if(random.nextInt(100) == 0) // 1 in 100 chance
-        // {
-        //     entities.add(new BasicZombie(random.nextInt(800), random.nextInt(600), 2) );
-        // }
-        //
-        // if(!gameOver) {
-        //     level += 0.01f;
-        // }
+        if(random.nextInt(100) == 0) // 1 in 100 chance
+        {
+            entities.add(new BasicZombie(random.nextInt(800), random.nextInt(600), 2) );
+        }
+
+        if(!gameOver) {
+             level += 0.01f;
+         }
 
 
         for (Entity e : entities) {
@@ -97,10 +101,12 @@ public class Game extends BasicGame {
     @Override
     public void render(GameContainer container, Graphics g) throws SlickException {
 
+        mapRender.setGraphics(g);
+
         for (Entity e : entities) {
             if (e.getAlive()) {
 
-                e.render(g);
+                e.render(mapRender);
             }
         }
 
@@ -111,9 +117,7 @@ public class Game extends BasicGame {
 
         //fontLevel.drawString(10, 10, "Level: " + (int)level, Color.red);
 
-        g.setColor(Color.blue);
-        g.fillRect(Tile.t.xpos, Tile.t.ypos, 32, 32);
-        g.drawRect(Tile.t.xpos, Tile.t.ypos, 32, 32);
+
 
     }
 

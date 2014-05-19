@@ -1,7 +1,6 @@
 package com.TownGame.towngame;
 
 import org.newdawn.slick.Color;
-import org.newdawn.slick.Graphics;
 
 public class Camera extends Entity {
 
@@ -14,7 +13,7 @@ public class Camera extends Entity {
     }
 
     @Override
-    public void render(Graphics g) {
+    public void render(MapRender g) {
       g.setColor(Color.blue);
       g.fillRect(getX(), getY(), 32, 32);
       g.drawRect(getX(), getY(), 32, 32);
