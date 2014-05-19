@@ -21,7 +21,7 @@ public class Game extends BasicGame {
     public float level = 1f;
     private TrueTypeFont fontLevel;
     private GameContainer container;
-
+    public static boolean fullscreen = false;
     public Game(String title) {
         super(title);
         game = this;
@@ -30,7 +30,7 @@ public class Game extends BasicGame {
 
     public static void main(String[] args) throws SlickException {
         AppGameContainer app = new AppGameContainer(new Game("setup test"));
-        app.setDisplayMode(800, 600, true);
+        app.setDisplayMode(800, 600, fullscreen);
         app.setAlwaysRender(true);
         app.setTargetFrameRate(60);
         app.start();
@@ -44,6 +44,7 @@ public class Game extends BasicGame {
 
     @Override
     public void init(GameContainer container) throws SlickException {
+        gameOver = false;
         this.container = container;
         entities = new ArrayList<Entity>();
         player = new Player(400, 300, 5, 100);
@@ -73,6 +74,7 @@ public class Game extends BasicGame {
     public void keyPressed(int key, char code) {
         if(code == 'r') {
             level = 1;
+            container.getInput().removeKeyListener(controller);
             try {
                 init(container);
             } catch (SlickException e) {

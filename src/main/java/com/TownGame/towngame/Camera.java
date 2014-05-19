@@ -7,8 +7,8 @@ public class Camera extends Entity {
 
     private Entity entityToFollow;
 
-    private float followDistanceY = 200;
-    private float followDistanceX = 300;
+    private float followDistanceY = 140;
+    private float followDistanceX = 200;
     private boolean debug = false;
 
     public Camera(int x, int y) {
