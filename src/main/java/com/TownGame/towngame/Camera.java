@@ -6,7 +6,8 @@ public class Camera extends Entity {
 
 
     private Entity entityToFollow;
-    private float followDistance = 60;
+    private float followDistanceY = 200;
+    private float followDistanceX = 300;
     private boolean debug = false;
 
     public Camera(int x, int y) {
@@ -33,13 +34,13 @@ public class Camera extends Entity {
         if(entityToFollow == null) { return; };
 
         float difX = entityToFollow.getX() - getX();
-        if(Math.abs(difX) > followDistance) {
-            setX(entityToFollow.getX() + (difX < 0 ? 1 : -1) * followDistance);
+        if(Math.abs(difX) > followDistanceX) {
+            setX(entityToFollow.getX() + (difX < 0 ? 1 : -1) * followDistanceX);
         }
 
         float difY = entityToFollow.getY() - getY();
-        if(Math.abs(difY) > followDistance) {
-            setY(entityToFollow.getY() + (difY < 0 ? 1 : -1) * followDistance);
+        if(Math.abs(difY) > followDistanceY) {
+            setY(entityToFollow.getY() + (difY < 0 ? 1 : -1) * followDistanceY);
         }
     }
 }
