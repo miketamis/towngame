@@ -5,7 +5,7 @@ import org.newdawn.slick.Graphics;
 
 public class BasicZombie extends Enemy {
 
-    private int speed;
+    private float speed;
 
 
     BasicZombie(int x, int y, int l) {
@@ -16,22 +16,44 @@ public class BasicZombie extends Enemy {
         attack = level * 5;
         defense = level * 3;
         size = 32;
+        speed = 1;
 
     }
 
     @Override
     public void update() {
-      moveTowards(Game.game.player);
+        speed = (float) Math.min(Math.log(Game.game.level / 10) + 4,4f);
+        moveTowards(nearest(Player.class));
+    }
+
+    private Entity nearest(Class entity) {
+      return Game.game.getNearest(entity,getX(),getY(), this);
+    }
+
+    @Override
+    public void colideWith(Entity e) {
+        super.colideWith(e);
+        moveAwayFrom(e);
     }
 
     public void moveTowards(Entity e) {
-      float xDif = e.getX() - getX();
-      float yDif = e.getY() - getY();
-      float total = Math.abs(xDif) + Math.abs(yDif);
-      float s = 1/total;
-      incrementX(s * xDif);
-      incrementY(s * yDif);
-     }
+        float xDif = e.getX() - getX();
+        float yDif = e.getY() - getY();
+        float total = Math.abs(xDif) + Math.abs(yDif);
+        if(total < 4) { return; }
+        float s = speed/total;
+        incrementX(s * xDif);
+        incrementY(s * yDif);
+    }
+
+    public void moveAwayFrom(Entity e) {
+        float xDif = e.getX() - getX();
+        float yDif = e.getY() - getY();
+        float total = Math.abs(xDif) + Math.abs(yDif);
+        float s = 1/total;
+        incrementX(- (s * xDif));
+        incrementY(- (s * yDif));
+    }
 
     public void move(int move) {
 

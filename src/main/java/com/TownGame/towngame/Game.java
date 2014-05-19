@@ -6,6 +6,7 @@ import org.newdawn.slick.Graphics;
 
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class Game extends BasicGame {
@@ -17,6 +18,8 @@ public class Game extends BasicGame {
     TrueTypeFont font;
     private ArrayList<Entity> entities = new ArrayList<Entity>();
     private Controller controller;
+    public float level = 1f;
+    private TrueTypeFont fontLevel;
 
     public Game(String title) {
         super(title);
@@ -34,20 +37,40 @@ public class Game extends BasicGame {
 
     }
 
+    Random random = new Random();
+
     @Override
     public void init(GameContainer container) throws SlickException {
         player = new Player(50, 50, 5, 100);
         controller = new Controller(player);
         container.getInput().addKeyListener(controller);
         entities.add(player);
+
         entities.add(new BasicZombie(150, 150, 2));
+        for(int i = 0; i < 5;i++) {
+          entities.add(new BasicZombie(random.nextInt(800), random.nextInt(600), 2));
+        }
+
         Font awtFont = new Font("Verdana", Font.BOLD, 50);
         font = new TrueTypeFont(awtFont, false);
+
+        Font ff = new Font("Verdana", Font.BOLD, 20);
+        fontLevel = new TrueTypeFont(awtFont, false);
     }
 
     @Override
     public void update(GameContainer container, int delta) throws SlickException {
         controller.update();
+
+        if(random.nextInt(100) == 0) // 1 in 100 chance
+        {
+            entities.add(new BasicZombie(random.nextInt(800), random.nextInt(600), 2) );
+        }
+
+        if(!gameOver) {
+            level += 0.01f;
+        }
+
 
         for (Entity e : entities) {
             e.update();
@@ -83,8 +106,22 @@ public class Game extends BasicGame {
             font.drawString(150.0f, 200.0f, "YOU ARE DEAD!", Color.red);
         }
 
+        fontLevel.drawString(10, 10, "Level: " + (int)level, Color.red);
 
     }
 
 
+    public Entity getNearest(Class entity, float x, float y, Entity self) {
+        Entity nearest = null;
+        for(Entity e : entities) {
+            if(e.getClass().equals(entity)) {
+                if(e == self) { continue; }
+                if(nearest == null) { nearest = e; continue; }
+                if(nearest.getSquareDistanceTo(x, y) > e.getSquareDistanceTo(x, y)) {
+                    nearest = e;
+                }
+            }
+        }
+        return nearest;
+    }
 }

@@ -97,4 +97,7 @@ public class Entity {
     }
 
 
+    public float getSquareDistanceTo(float x, float y) {
+        return getX() * getX() + getY() * getY();
+    }
 }
