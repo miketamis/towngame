@@ -6,7 +6,7 @@ public class Camera extends Entity {
 
 
     private Entity entityToFollow;
-    private float followDistance = 60;
+    private float followDistance = 120;
 
     public Camera(int x, int y) {
         super(x, y);
@@ -14,10 +14,10 @@ public class Camera extends Entity {
 
     @Override
     public void render(MapRender g) {
-      g.setColor(Color.blue);
-      g.fillRect(getX(), getY(), 32, 32);
-      g.drawRect(getX(), getY(), 32, 32);
-      g.drawString("Camera", getX() - 20, getY() - 20);
+      // g.setColor(Color.blue);
+      // g.fillRect(getX(), getY(), 32, 32);
+      // g.drawRect(getX(), getY(), 32, 32);
+      // g.drawString("Camera", getX() - 20, getY() - 20);
     }
 
     public void attachEntity(Entity entityToFollow) {
