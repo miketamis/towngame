@@ -32,35 +32,22 @@ public class Player extends Entity implements Controllable {
         if (Game.gameOver == false) {
             if (direction == Direction.DOWN) { //down key
                 incrementY(speed);
-
-								 
-
             }
 
 
             if (direction == Direction.LEFT) { //left key
                 incrementX(-speed);
-
-
-
 							}
 
 
 
             if (direction == Direction.UP) { //up key
                 incrementY(-speed);
-
-
-
-
             }
 
 
             if (direction == Direction.RIGHT) { //right key
                 incrementX(speed);
-
-
-
             }
 
         }

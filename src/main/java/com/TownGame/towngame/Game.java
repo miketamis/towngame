@@ -45,6 +45,9 @@ public class Game extends BasicGame {
         controller = new Controller(player);
         container.getInput().addKeyListener(controller);
         entities.add(player);
+        Camera camera = new Camera(50, 50);
+        camera.attachEntity(player);
+        entities.add(camera);
 
         // entities.add(new BasicZombie(150, 150, 2));
         // for(int i = 0; i < 5;i++) {
