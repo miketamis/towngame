@@ -20,6 +20,7 @@ public class Game extends BasicGame {
     private Controller controller;
     public float level = 1f;
     private TrueTypeFont fontLevel;
+    public static boolean fullscreen = false;
 
     public Game(String title) {
         super(title);
@@ -29,7 +30,7 @@ public class Game extends BasicGame {
 
     public static void main(String[] args) throws SlickException {
         AppGameContainer app = new AppGameContainer(new Game("setup test"));
-        app.setDisplayMode(800, 600, false);
+        app.setDisplayMode(800, 600, fullscreen);
         app.setAlwaysRender(true);
         app.setTargetFrameRate(60);
         app.start();
