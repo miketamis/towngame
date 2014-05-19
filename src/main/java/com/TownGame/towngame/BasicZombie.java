@@ -21,7 +21,7 @@ public class BasicZombie extends Enemy {
 
     @Override
     public void update() {
-        speed = (float) Math.min(Math.log(Game.game.level / 10) + 4,4f);
+        speed = (float) Math.min(Math.log(Game.game.level / 20) + 7,7f);
         moveTowards(nearest(Player.class));
     }
 
