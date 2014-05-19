@@ -6,6 +6,7 @@ public class Camera extends Entity {
 
 
     private Entity entityToFollow;
+
     private float followDistanceY = 200;
     private float followDistanceX = 300;
     private boolean debug = false;
