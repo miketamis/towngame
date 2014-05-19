@@ -41,15 +41,15 @@ public class Game extends BasicGame {
 
     @Override
     public void init(GameContainer container) throws SlickException {
-        player = new Player(50, 50, 5, 100);
+        player = new Player(400, 300, 5, 100);
         controller = new Controller(player);
         container.getInput().addKeyListener(controller);
         entities.add(player);
 
-        entities.add(new BasicZombie(150, 150, 2));
-        for(int i = 0; i < 5;i++) {
-          entities.add(new BasicZombie(random.nextInt(800), random.nextInt(600), 2));
-        }
+        // entities.add(new BasicZombie(150, 150, 2));
+        // for(int i = 0; i < 5;i++) {
+        //   entities.add(new BasicZombie(random.nextInt(800), random.nextInt(600), 2));
+        // }
 
         Font awtFont = new Font("Verdana", Font.BOLD, 50);
         font = new TrueTypeFont(awtFont, false);
@@ -62,14 +62,14 @@ public class Game extends BasicGame {
     public void update(GameContainer container, int delta) throws SlickException {
         controller.update();
 
-        if(random.nextInt(100) == 0) // 1 in 100 chance
-        {
-            entities.add(new BasicZombie(random.nextInt(800), random.nextInt(600), 2) );
-        }
-
-        if(!gameOver) {
-            level += 0.01f;
-        }
+        // if(random.nextInt(100) == 0) // 1 in 100 chance
+        // {
+        //     entities.add(new BasicZombie(random.nextInt(800), random.nextInt(600), 2) );
+        // }
+        //
+        // if(!gameOver) {
+        //     level += 0.01f;
+        // }
 
 
         for (Entity e : entities) {
@@ -106,7 +106,11 @@ public class Game extends BasicGame {
             font.drawString(150.0f, 200.0f, "YOU ARE DEAD!", Color.red);
         }
 
-        fontLevel.drawString(10, 10, "Level: " + (int)level, Color.red);
+        //fontLevel.drawString(10, 10, "Level: " + (int)level, Color.red);
+
+        g.setColor(Color.blue);
+        g.fillRect(Tile.t.xpos + Camera.dOffsetX, Tile.t.ypos + Camera.dOffsetY, 32, 32);
+        g.drawRect(Tile.t.xpos + Camera.dOffsetX, Tile.t.ypos + Camera.dOffsetY, 32, 32);
 
     }
 

@@ -32,22 +32,46 @@ public class Player extends Entity implements Controllable {
         if (Game.gameOver == false) {
             if (direction == Direction.DOWN) { //down key
                 incrementY(speed);
+
+								 Camera.offsetY -= speed;
+								if(Camera.offsetY <= -50){
+									Camera.dOffsetY -=speed;
+								}
+
             }
 
 
             if (direction == Direction.LEFT) { //left key
                 incrementX(-speed);
-            }
+								Camera.offsetX += speed;
+								if(Camera.offsetX >= 50){
+									Camera.dOffsetX +=speed;
+								}
+								
+							}
+
 
 
             if (direction == Direction.UP) { //up key
                 incrementY(-speed);
+
+								Camera.offsetY += speed;
+								if(Camera.offsetY >= 50){
+									Camera.dOffsetY +=speed;
+								}
+
 
             }
 
 
             if (direction == Direction.RIGHT) { //right key
                 incrementX(speed);
+
+								Camera.offsetX -= speed;
+								if(Camera.offsetX <= -50){
+									Camera.dOffsetX -=speed;
+								}
+
             }
 
         }
@@ -55,9 +79,11 @@ public class Player extends Entity implements Controllable {
 
     public void render(Graphics g) {
         g.setColor(Color.green);
-        g.fillRect((int)getX(),(int) getY(), 32, 32);
-        g.drawRect((int)getX(),(int) getY(), 32, 32);
-        g.drawString("Health: " + getHealth(), getX() - 20, getY() - 20);
+        g.fillRect((int)getX() + Camera.dOffsetX,(int) getY() + Camera.dOffsetY, 32, 32);
+        g.drawRect((int)getX() + Camera.dOffsetX,(int) getY() + Camera.dOffsetY, 32, 32);
+        g.drawString("Health: " + getHealth(), getX() + Camera.dOffsetX - 20, getY() + Camera.dOffsetY - 20);
+				g.drawString("xO: " + Camera.dOffsetX, getX() + Camera.dOffsetX - 20, getY() + Camera.dOffsetY +50);
+				g.drawString("yO: " + Camera.dOffsetY, getX() + Camera.dOffsetX - 20, getY() + Camera.dOffsetY +65);
 
     }
 
