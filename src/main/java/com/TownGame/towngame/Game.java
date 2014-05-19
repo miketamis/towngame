@@ -16,10 +16,11 @@ public class Game extends BasicGame {
     public static boolean gameOver = false;
     public Player player;
     TrueTypeFont font;
-    private ArrayList<Entity> entities = new ArrayList<Entity>();
+    private ArrayList<Entity> entities;
     private Controller controller;
     public float level = 1f;
     private TrueTypeFont fontLevel;
+    private GameContainer container;
 
     public Game(String title) {
         super(title);
@@ -43,6 +44,8 @@ public class Game extends BasicGame {
 
     @Override
     public void init(GameContainer container) throws SlickException {
+        this.container = container;
+        entities = new ArrayList<Entity>();
         player = new Player(400, 300, 5, 100);
         controller = new Controller(player);
         container.getInput().addKeyListener(controller);
@@ -63,6 +66,18 @@ public class Game extends BasicGame {
 
         Font ff = new Font("Verdana", Font.BOLD, 20);
         fontLevel = new TrueTypeFont(awtFont, false);
+    }
+    @Override
+    public void keyPressed(int key, char code) {
+        if(code == 'r') {
+            level = 1;
+            try {
+                init(container);
+            } catch (SlickException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 
     @Override
