@@ -7,7 +7,7 @@ public class BasicZombie extends Enemy {
     private float speed;
 
 
-    BasicZombie(int x, int y, int l) {
+    BasicZombie(float x, float y, int l) {
 
         super(x, y);
 

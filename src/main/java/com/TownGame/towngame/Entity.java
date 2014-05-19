@@ -10,7 +10,7 @@ public class Entity {
     private boolean alive = true;
 
 
-    public Entity(int x, int y) {
+    public Entity(float x, float y) {
 
         xpos = x;
         ypos = y;

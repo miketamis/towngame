@@ -7,7 +7,7 @@ public class Enemy extends Entity {
     public int defense;
     public int size;
     public int level;
-    public Enemy(int x, int y) {
+    public Enemy(float x, float y) {
         super(x, y);
     }
 

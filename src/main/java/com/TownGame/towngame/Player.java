@@ -8,7 +8,7 @@ public class Player extends Entity implements Controllable {
     private int speed;
 
 
-    Player(int x, int y, int s, int h) {
+    Player(float x, float y, int s, int h) {
         super(x, y);
         speed = s;
         setHealth(h);
