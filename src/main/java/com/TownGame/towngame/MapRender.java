@@ -24,7 +24,7 @@ public class MapRender {
     }
 
     public void fillRect(float x, float y, int sx, int sy) {
-        g.fillRect(x - camera.getX() +400 ,y - camera.getY() + 300, sx,sy);
+        g.fillRect(x - camera.getX() + 400 ,y - camera.getY() + 300, sx,sy);
     }
 
     public void drawRect(float x, float y, int sx, int sy) {
