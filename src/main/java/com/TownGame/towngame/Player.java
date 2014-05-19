@@ -56,10 +56,10 @@ public class Player extends Entity implements Controllable {
         g.setColor(Color.blue);
         g.fillRect((int)getX(),(int) getY(), 32, 32);
         g.drawRect((int)getX(),(int) getY(), 32, 32);
-        g.drawString("Health: " + getHealth(), getX() - 20, getY() - 20);
+        //g.drawString("Health: " + getHealth(), getX() - 20, getY() - 20);
 				g.setColor(Color.red);
-				g.fillRect((int)getX() -5,(int) getY() -10, 42, 5);
-				g.drawRect((int)getX() -5,(int) getY() -10, 42, 5);
+				g.fillRect((int)getX() -5,(int) getY() -20, 42, 5);
+				g.drawRect((int)getX() -5,(int) getY() -20, 42, 5);
 				g.setColor(Color.green);
 				g.fillRect((int)getX() -5,(int) getY() -20, (getHealth() * 42 / 100), 5);
 				g.drawRect((int)getX() -5,(int) getY() -20, (getHealth() * 42 / 100), 5);
