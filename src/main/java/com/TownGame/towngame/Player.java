@@ -29,23 +29,23 @@ public class Player extends Entity implements Controllable {
     @Override
     public void move(Direction direction) {
         if (Game.gameOver == false) {
-            if (direction == Direction.DOWN) { //down key
+            if (direction == Direction.DOWN && getY() <= 3200) { //down key
                 incrementY(speed);
             }
 
 
-            if (direction == Direction.LEFT) { //left key
+            if (direction == Direction.LEFT && getX() >= 0) { //left key
                 incrementX(-speed);
 							}
 
 
 
-            if (direction == Direction.UP) { //up key
+            if (direction == Direction.UP && getY() >= 0) { //up key
                 incrementY(-speed);
             }
 
 
-            if (direction == Direction.RIGHT) { //right key
+            if (direction == Direction.RIGHT && getX() <= 3200) { //right key
                 incrementX(speed);
             }
 

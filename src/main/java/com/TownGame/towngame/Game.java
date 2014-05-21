@@ -29,7 +29,7 @@ public class Game extends BasicGame {
     }
 
     public static void main(String[] args) throws SlickException {
-        AppGameContainer app = new AppGameContainer(new Game("setup test"));
+        AppGameContainer app = new AppGameContainer(new Game("Project Town Game"));
         app.setDisplayMode(800, 600, fullscreen);
         app.setAlwaysRender(true);
         app.setTargetFrameRate(60);
